@@ -3,7 +3,7 @@
     require "../../autoload.php";
 
     //Instaciar um objeto da classe DAO
-    $dao = new PagamentoDAO();
+    $dao = new GarcomDAO();
 ?>
 
 <!doctype html>
@@ -367,9 +367,12 @@
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
-            <h1 class="h2">Gerenciamento de Pagamento</h1>
+            <h1 class="h2">Gerenciamento de Garçons</h1>
             
           </div>
+          <p>
+            <a href="create.php">Novo Garçom</a>
+          </p>
 
           <div class="table-responsive small">
             <table class="table table.hover">
@@ -377,10 +380,10 @@
                 <th>ID</th>
                 <th>Nome</th>
             </tr>
-            <?php foreach($dao->read() as $pagamento) : ?>
+            <?php foreach($dao->read() as $garcom) : ?>
                 <tr>
-                    <td><?= $pagamento->getId() ?></td>
-                    <td><?= $pagamento->getTipo() ?></td>
+                    <td><?= $garcom->getId() ?></td>
+                    <td><?= $garcom->getNome() ?></td>
                 </tr>
             <?php endforeach ?>
             </table>

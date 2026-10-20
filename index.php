@@ -1,3 +1,11 @@
+<?php
+    //Incluir o arqwuivo para carregamento das classes
+    require "../../autoload.php";
+
+    //Instaciar um objeto da classe DAO
+    $dao = new GarcomDAO();
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
@@ -16,6 +24,7 @@
     />
     <script src="../../js/color-modes.js"></script>
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <meta name="theme-color" content="#712cf9" />
     <link href="../../css/dashboard.css" rel="stylesheet" />
     <style>
@@ -359,15 +368,35 @@
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
-            <h1 class="h2">La Bella Pasta</h1>
+            <h1 class="h2">Gerenciamento de Garçons</h1>
             
           </div>
-          
-          <h2>Section title</h2>
+          <p>
+            <a href="create.php">Novo Garçom</a>
+          </p>
+
           <div class="table-responsive small">
-            <p>
-              Restaurante de gastronimia Italiana
-            </p>
+            <table class="table table.hover">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+            <?php foreach($dao->read() as $garcom) : ?>
+                <tr>
+                    <td><?= $garcom->getId() ?></td>
+                    <td><?= $garcom->getNome() ?></td>
+                    <td>
+                      <a title="Editar" href="edit.php?id=<?= $garcom->getId() ?>">
+                        <i class="bi bi-pen"></i>
+                      </a>
+                      <a title="Excluir" href="destroy.php?id=<?= $garcom->getId() ?>">
+                        <i class="bi bi-trash"></i>
+                      </a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+            </table>
           </div>
         </main>
       </div>

@@ -359,23 +359,22 @@
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
-            <h1 class="h2">Cadastro de Garçons</h1>
+            <h1 class="h2">Adicionar Mesa</h1>
             
           </div>
           <p>
-            <a href="create.php">Novo Garçom</a>
+            <a href="create.php">Mesa</a>
           </p>
 
           <div class="table-responsive small">
             <form action="insert.php" method="post">
             <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" class="form-control"
-                required>
+                <label for="numero">Número</label>
+                <input type="text" name="numero" class="form-control">
             </div>
             <div class="form-group">
                 <input type="reset" value="Limpar" class="btn">
-                <input type="submit" value="Salvar" class="btn btn-success">
+                <input type="submit" value="Salvar" class="btn btn-sucess">
             </form>
           </div>
         </main>

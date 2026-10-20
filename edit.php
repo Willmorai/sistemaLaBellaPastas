@@ -1,8 +1,8 @@
 <?php
     require "../../autoload.php";
 
-    $dao = new GarcomDAO();
-    $garcom = $dao->find($_GET['id']);
+    $dao = new PagamentoDAO();
+    $pagamento = $dao->find($_GET['id']);
 ?>
 
 
@@ -377,15 +377,15 @@
           <div class="table-responsive small">
             <form action="update.php" method="post">
             <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" value="<?= $garcom->getNome() ?>" class="form-control">
+                <label for="tipo_pagamento">Tipo de Pagamento</label>
+                <input type="text" name="forma de pagamento" value="<?= $pagamento->getTipo() ?>" class="form-control">
             </div>
             <div class="form-group">
-                <label for="nome">Id</label>
-                <input type="int" name="id" value="<?= $garcom->getId() ?>" class="form-control">
+                <label for="id_pagamento">Id</label>
+                <input type="int" name="id" value="<?= $pagamento->getId() ?>" class="form-control">
             </div>
 
-            <input type="hidden" name ="id" value="<?= $garcom->getId() ?>">
+            <input type="hidden" name ="id" value="<?= $pagamento->getId() ?>">
 
             <div class="form-group">
                 <input type="reset" value="Limpar" class="btn">

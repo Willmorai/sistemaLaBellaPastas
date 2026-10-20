@@ -3,7 +3,7 @@
     require "../../autoload.php";
 
     //Instaciar um objeto da classe DAO
-    $dao = new GarcomDAO();
+    $dao = new MesaDAO();
 ?>
 
 <!doctype html>
@@ -368,29 +368,29 @@
           <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
           >
-            <h1 class="h2">Gerenciamento de Garçons</h1>
+            <h1 class="h2">Gerenciamento de Mesas</h1>
             
           </div>
           <p>
-            <a href="create.php">Novo Garçom</a>
+            <a href="create.php">Adicionar mesa</a>
           </p>
 
           <div class="table-responsive small">
             <table class="table table.hover">
             <tr>
                 <th>ID</th>
-                <th>Nome</th>
+                <th>Número</th>
                 <th>Ações</th>
             </tr>
-            <?php foreach($dao->read() as $garcom) : ?>
+            <?php foreach($dao->read() as $mesa) : ?>
                 <tr>
-                    <td><?= $garcom->getId() ?></td>
-                    <td><?= $garcom->getNome() ?></td>
+                    <td><?= $mesa->getId() ?></td>
+                    <td><?= $mesa->getNumero() ?></td>
                     <td>
-                      <a title="Editar" href="edit.php?id=<?= $garcom->getId() ?>">
+                      <a title="Editar" href="edit.php?id=<?= $mesa->getId() ?>">
                         <i class="bi bi-pen"></i>
                       </a>
-                      <a title="Excluir" href="destroy.php?id=<?= $garcom->getId() ?>">
+                      <a title="Excluir" href="destroy.php?id=<?= $mesa->getId() ?>">
                         <i class="bi bi-trash"></i>
                       </a>
                     </td>

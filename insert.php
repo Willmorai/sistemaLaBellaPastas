@@ -2,12 +2,12 @@
     //Incluir o arquivo de autoload
     require "../../autoload.php";
 
-    $garcom = new garcom();
+    $mesa = new mesa();
 
-    $garcom->setNome($_POST['nome']);
+    $mesa->setNumero($_POST['numero']);
 
-    $dao = new GarcomDAO();
+    $dao = new MesaDAO();
     
-    $dao->create($garcom);
+    $dao->create($mesa);
 
     header('Location: index.php');

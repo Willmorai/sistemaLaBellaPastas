@@ -3,7 +3,7 @@
 
     $id = $_GET['id'];
 
-    $dao = new GarcomDAO();
+    $dao = new MesaDAO();
 
     $dao->destroy($id);
 
